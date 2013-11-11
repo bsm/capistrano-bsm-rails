@@ -13,7 +13,7 @@ Capistrano::Configuration.instance(:must_exist).load do
   end
 
   desc "Run rake tasks on primary app tier via CMD='task1 task2'"
-  task :rake, roles: :app, only: { primary: true } do
+  task :raketask, roles: :app, only: { primary: true } do
     abort "Please provide a CMD env var, e.g. CMD='db:mirate'" unless ENV['CMD']
 
     hostname = find_servers_for_task(current_task).first
